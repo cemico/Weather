@@ -1,0 +1,15 @@
+PODS:
+  - Alamofire (4.2.0)
+  - SwiftyGif (3.0.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.2.0)
+  - SwiftyGif
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  SwiftyGif: 89a0bb19709bdb6990e10405ad456d8bea804a65
+
+PODFILE CHECKSUM: 7b37b2272fdb3bdb575cbb6cf4fe6603a7b3b6c2
+
+COCOAPODS: 1.2.1
