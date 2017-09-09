@@ -206,14 +206,6 @@
                                                 <exclude reference="uEf-Bq-YQd"/>
                                                 <exclude reference="uxZ-uX-LUq"/>
                                                 <exclude reference="zhn-JT-N66"/>
-                                                <exclude reference="Hil-ou-LWu"/>
-                                                <exclude reference="QKh-uD-obM"/>
-                                                <exclude reference="Vzh-kZ-EA1"/>
-                                                <exclude reference="Wz8-B3-yu7"/>
-                                                <exclude reference="Y1K-7n-3fl"/>
-                                                <exclude reference="adz-Rn-R6N"/>
-                                                <exclude reference="axY-rC-yAH"/>
-                                                <exclude reference="fhC-it-hLF"/>
                                                 <exclude reference="Fpr-eC-ywl"/>
                                                 <exclude reference="Hy2-wg-Ros"/>
                                                 <exclude reference="QLU-xI-g4c"/>
@@ -222,6 +214,14 @@
                                                 <exclude reference="hPV-jr-9W5"/>
                                                 <exclude reference="ogB-hu-xMO"/>
                                                 <exclude reference="zBm-8C-4fn"/>
+                                                <exclude reference="Hil-ou-LWu"/>
+                                                <exclude reference="QKh-uD-obM"/>
+                                                <exclude reference="Vzh-kZ-EA1"/>
+                                                <exclude reference="Wz8-B3-yu7"/>
+                                                <exclude reference="Y1K-7n-3fl"/>
+                                                <exclude reference="adz-Rn-R6N"/>
+                                                <exclude reference="axY-rC-yAH"/>
+                                                <exclude reference="fhC-it-hLF"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=compact">
@@ -233,12 +233,12 @@
                                                 <exclude reference="cdd-ch-nvz"/>
                                                 <include reference="hLK-Fh-Pl7"/>
                                                 <include reference="uEf-Bq-YQd"/>
-                                                <include reference="Vzh-kZ-EA1"/>
-                                                <include reference="Y1K-7n-3fl"/>
-                                                <include reference="axY-rC-yAH"/>
                                                 <include reference="Fpr-eC-ywl"/>
                                                 <include reference="Hy2-wg-Ros"/>
                                                 <include reference="hPV-jr-9W5"/>
+                                                <include reference="Vzh-kZ-EA1"/>
+                                                <include reference="Y1K-7n-3fl"/>
+                                                <include reference="axY-rC-yAH"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular">
@@ -247,14 +247,14 @@
                                                 <include reference="MVX-G8-zyL"/>
                                                 <include reference="hvp-P9-Pal"/>
                                                 <include reference="zhn-JT-N66"/>
-                                                <include reference="QKh-uD-obM"/>
-                                                <include reference="Wz8-B3-yu7"/>
-                                                <include reference="adz-Rn-R6N"/>
-                                                <include reference="fhC-it-hLF"/>
                                                 <include reference="QLU-xI-g4c"/>
                                                 <include reference="gj2-x5-Opj"/>
                                                 <include reference="ogB-hu-xMO"/>
                                                 <include reference="zBm-8C-4fn"/>
+                                                <include reference="QKh-uD-obM"/>
+                                                <include reference="Wz8-B3-yu7"/>
+                                                <include reference="adz-Rn-R6N"/>
+                                                <include reference="fhC-it-hLF"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
@@ -272,8 +272,8 @@
                                                 <include reference="B1Z-J4-W4U"/>
                                                 <include reference="NkP-Qu-isX"/>
                                                 <include reference="tGA-nh-6ey"/>
-                                                <include reference="Hil-ou-LWu"/>
                                                 <exclude reference="bFg-ci-Uyg"/>
+                                                <include reference="Hil-ou-LWu"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=compact-widthClass=regular">
@@ -300,7 +300,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xJf-81-dzO" customClass="WeatherCollectionViewCell" customModule="DR_Weather" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherCollectionViewCell" id="xJf-81-dzO" customClass="WeatherCollectionViewCell" customModule="DR_Weather" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="80" width="414" height="590"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -458,19 +458,19 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
-                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SectionHeader" id="0DE-cG-ELW" customClass="WeatherCollectionSectionView" customModule="DR_Weather" customModuleProvider="target">
+                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherCollectionSectionView" id="0DE-cG-ELW" customClass="WeatherCollectionSectionView" customModule="DR_Weather" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvZ-TW-20H" userLabel="Top Border View">
-                                                    <rect key="frame" x="-1" y="0.0" width="415" height="1"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="R2k-s3-9cz"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yf9-zS-Zs1" userLabel="Bottom Border View">
-                                                    <rect key="frame" x="-1" y="79" width="415" height="1"/>
+                                                    <rect key="frame" x="0.0" y="79" width="414" height="1"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="HRV-gA-Mpi"/>

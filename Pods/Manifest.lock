@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (4.2.0)
+  - EZSwiftExtensions (1.9)
   - SwiftyGif (3.0.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.2.0)
+  - EZSwiftExtensions (~> 1.7)
   - SwiftyGif
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  EZSwiftExtensions: ce22bf6fc5c6e7c883fec413300b006e123735d0
   SwiftyGif: 89a0bb19709bdb6990e10405ad456d8bea804a65
 
-PODFILE CHECKSUM: 7b37b2272fdb3bdb575cbb6cf4fe6603a7b3b6c2
+PODFILE CHECKSUM: 1285bb7fe62523607d66ed4923a06caa13b463dd
 
 COCOAPODS: 1.2.1

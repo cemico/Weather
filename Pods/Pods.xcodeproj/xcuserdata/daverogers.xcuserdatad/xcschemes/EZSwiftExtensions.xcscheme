@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B50F10EDD451A96E997A83216A13E1BB'
-               BlueprintName = 'SwiftyGif'
+               BlueprintIdentifier = '09364D07138794106087C58670C7492D'
+               BlueprintName = 'EZSwiftExtensions'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyGif.framework'>
+               BuildableName = 'EZSwiftExtensions.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

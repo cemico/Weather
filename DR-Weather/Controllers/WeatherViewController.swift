@@ -8,15 +8,10 @@
 
 import UIKit
 import SwiftyGif
+import EZSwiftExtensions
 import CoreLocation
 
 class WeatherViewController: UIViewController {
-
-    // update back to "private" in Xcode 9
-    fileprivate struct Constants {
-
-        static let reuseIdentifier = "cell"
-    }
 
     @IBOutlet weak var loadingView: LoadingView!
     @IBOutlet weak var containerView: UIView!
@@ -378,7 +373,7 @@ extension WeatherViewController: UICollectionViewDataSource {
         if collectionView == self.collectionView {
 
             // main collection
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.reuseIdentifier, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCollectionViewCell.self().className, for: indexPath)
 
             if let cell = cell as? WeatherCollectionViewCell {
 
@@ -398,7 +393,7 @@ extension WeatherViewController: UICollectionViewDataSource {
         if indexPath.row == 0 {
 
             // now is first item
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HourlyNowCollectionViewCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyNowCollectionViewCell.self().className, for: indexPath)
 
             if let cell = cell as? HourlyNowCollectionViewCell {
 
@@ -409,7 +404,7 @@ extension WeatherViewController: UICollectionViewDataSource {
         }
         else {
 
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HourlyCollectionViewCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyCollectionViewCell.self().className, for: indexPath)
 
             if let cell = cell as? HourlyCollectionViewCell {
 
@@ -428,7 +423,7 @@ extension WeatherViewController: UICollectionViewDataSource {
             case UICollectionElementKindSectionHeader:
 
                 let sectionView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                                 withReuseIdentifier: WeatherCollectionSectionView.Constants.reuseIdentifier,
+                                                                                 withReuseIdentifier: WeatherCollectionSectionView.self().className,
                                                                                  for: indexPath) as! WeatherCollectionSectionView
                 // attach
                 sectionView.collectionFlowLayout = hourlyCollectionFlowLayout
@@ -562,7 +557,7 @@ extension WeatherViewController: UITableViewDataSource {
 
         if tableView == dailyTableView {
 
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DailyTableViewCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: DailyTableViewCell.self().className, for: indexPath)
 
             if let cell = cell as? DailyTableViewCell {
 
@@ -573,7 +568,7 @@ extension WeatherViewController: UITableViewDataSource {
             return cell
         }
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ConditionsTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ConditionsTableViewCell.self().className, for: indexPath)
 
         if let cell = cell as? ConditionsTableViewCell {
 

@@ -64,11 +64,6 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
 class WeatherCollectionSectionView: UICollectionReusableView {
 
-    struct Constants {
-
-        static let reuseIdentifier = "SectionHeader"
-    }
-    
     weak var collectionView: UICollectionView? {
 
         didSet {

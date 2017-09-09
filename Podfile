@@ -8,5 +8,6 @@ target 'DR-Weather' do
   # Pods for DR-Weather
   pod 'Alamofire', '~> 4.2.0'
   pod 'SwiftyGif'
+  pod 'EZSwiftExtensions', '~> 1.7'
 
 end
