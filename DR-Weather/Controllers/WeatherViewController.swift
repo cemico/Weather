@@ -170,6 +170,9 @@ class WeatherViewController: UIViewController {
                 self.collectionView.frame.size.height -= offset
                 self.collectionView.contentOffset.y = 0
             }
+
+            // update dynamic cell sizing
+            self.conditionsTableView.reloadData()
         }
     }
 

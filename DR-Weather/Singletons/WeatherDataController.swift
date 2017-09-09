@@ -95,8 +95,8 @@ class WeatherDataController {
 
                         // save results in our cache
                         let weather = Weather(attributes: attributes)
-                        print(weather.location.city)
                         self.weather = weather
+//                        print(weather)
 
                         // save each component 
                         for weatherOption in weatherOptions {
@@ -281,11 +281,32 @@ class WeatherDataController {
 
     func getDailyAggregate() -> [DayAggregate] {
 
+        func extremeRangeBoundsTemp(temp: String) -> String {
+
+            let minimum = -100
+            let maximum = 150
+
+            var output = temp
+            if let outputI = Int(output) {
+
+                if outputI < minimum || outputI > maximum {
+
+                    output = "?"
+                }
+            }
+            
+            return output
+        }
+        
         guard let dailyForecast = forecastDays, dailyForecast.count > 0 else { return [] }
 
         var fcDays: [DayAggregate] = dailyForecast.map { forecast in
 
-            return DayAggregate(day: forecast.weekday, iconUrl: forecast.icon_url, hiTemp: forecast.highF, loTemp: forecast.lowF)
+            // semi-validation
+            let lo = extremeRangeBoundsTemp(temp: forecast.lowF)
+            let hi = extremeRangeBoundsTemp(temp: forecast.highF)
+
+            return DayAggregate(day: forecast.weekday, iconUrl: forecast.icon_url, hiTemp: hi, loTemp: lo)
         }
 
         // drop today from 10-day forecast
