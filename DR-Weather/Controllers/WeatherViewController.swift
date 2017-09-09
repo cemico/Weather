@@ -16,9 +16,9 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var loadingView: LoadingView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionFlowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var collectionFlowLayout: WeatherCollectionFlowLayout!
     @IBOutlet weak var hourlyCollectionView: UICollectionView!
-    @IBOutlet weak var hourlyCollectionFlowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var hourlyCollectionFlowLayout: HourlyCollectionFlowLayout!
     @IBOutlet weak var dailyTableView: UITableView!
     @IBOutlet weak var conditionsTableView: UITableView!
     @IBOutlet weak var headerView: UIView!
@@ -125,15 +125,14 @@ class WeatherViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if UIDevice.current.orientation.isLandscape {
+//        if UIDevice.current.orientation.isLandscape {
 
             syncToCurrentDeviceOrientation()
-        }
+//        }
 
         if let text = cityLabel.text, !text.isEmpty {
 
             // data has arrived before display
-            print("from viewDidAppear")
             fadeDisplayIn()
         }
 
@@ -145,9 +144,6 @@ class WeatherViewController: UIViewController {
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-
-        // handle rotation for non-sizing class items, i.e. text alignment
-        syncToCurrentDeviceOrientation()
 
         coordinator.animate(alongsideTransition: { _ in
 
@@ -171,6 +167,9 @@ class WeatherViewController: UIViewController {
                 self.collectionView.contentOffset.y = 0
             }
 
+            // handle rotation for non-sizing class items, i.e. text alignment
+            self.syncToCurrentDeviceOrientation()
+            
             // update dynamic cell sizing
             self.conditionsTableView.reloadData()
         }
@@ -192,8 +191,11 @@ class WeatherViewController: UIViewController {
             [cityLabel, currentTempLabel, conditionLabel].forEach({ $0.textAlignment = .center })
         }
 
+        // make sure the collection view layout tracks the right width
+        self.collectionFlowLayout.itemSize.width = self.containerView.frame.size.width
+        print("container width: \(self.collectionFlowLayout.itemSize.width)")
+
         // have collection re-layout
-//        hourlyCollectionFlowLayout.invalidateLayout()
         collectionFlowLayout.invalidateLayout()
     }
 
@@ -249,7 +251,6 @@ class WeatherViewController: UIViewController {
         if isVisible {
 
             // data arrived after display was shown, update
-            print("from data update")
             fadeDisplayIn()
         }
 
@@ -513,8 +514,8 @@ extension WeatherViewController: UICollectionViewDelegateFlowLayout {
 
         if collectionView == self.collectionView {
 
-            let width = containerView.bounds.width - collectionFlowLayout.sectionInset.left - collectionFlowLayout.sectionInset.right
-            var height = collectionFlowLayout.itemSize.height
+            let width = self.collectionFlowLayout.itemSize.width
+            var height = self.collectionFlowLayout.itemSize.height
             if UIDevice.current.orientation.isLandscape {
 
                 // 270 table + 40 label
@@ -522,7 +523,7 @@ extension WeatherViewController: UICollectionViewDelegateFlowLayout {
             }
 
             let newSize = CGSize(width: width, height: height)
-            print("newSize: \(newSize)")
+//            print("newSize: \(newSize)")
             return newSize
         }
         else if collectionView == hourlyCollectionView {
@@ -586,3 +587,7 @@ extension WeatherViewController: UITableViewDataSource {
 extension WeatherViewController: UITableViewDelegate {
 
 }
+
+// misc class definitions for debugging identification
+class WeatherCollectionFlowLayout: UICollectionViewFlowLayout { }
+class HourlyCollectionFlowLayout: UICollectionViewFlowLayout { }
