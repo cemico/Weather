@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,14 +24,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather_all" translatesAutoresizingMaskIntoConstraints="NO" id="FZC-cc-MsH">
-                                <rect key="frame" x="37" y="86" width="300" height="300"/>
+                                <rect key="frame" x="46" y="86" width="283" height="283"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="PdY-d8-hIt"/>
-                                    <constraint firstAttribute="width" constant="300" id="ugK-4E-Rhu"/>
+                                    <constraint firstAttribute="height" secondItem="FZC-cc-MsH" secondAttribute="width" multiplier="1:1" id="qwE-Re-yJA"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plume Weather Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ew6-Se-xn3">
-                                <rect key="frame" x="37" y="444" width="300" height="33"/>
+                                <rect key="frame" x="46" y="427" width="283" height="33"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.6588235294" blue="0.042588975690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -38,11 +39,13 @@
                         <color key="backgroundColor" red="0.29800808429718018" green="0.66001200675964355" blue="0.81653410196304321" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ew6-Se-xn3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5ys-2P-743"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FZC-cc-MsH" secondAttribute="trailing" constant="30" id="JLX-d2-SuP"/>
                             <constraint firstItem="ew6-Se-xn3" firstAttribute="trailing" secondItem="FZC-cc-MsH" secondAttribute="trailing" id="RYg-vL-dYU"/>
                             <constraint firstItem="ew6-Se-xn3" firstAttribute="leading" secondItem="FZC-cc-MsH" secondAttribute="leading" id="VLZ-dG-vv4"/>
                             <constraint firstItem="FZC-cc-MsH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hhJ-HA-KWs"/>
                             <constraint firstItem="ew6-Se-xn3" firstAttribute="top" secondItem="FZC-cc-MsH" secondAttribute="bottom" constant="58" id="jUq-uJ-QWr"/>
                             <constraint firstItem="FZC-cc-MsH" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="66" id="sEQ-H2-9J9"/>
+                            <constraint firstItem="FZC-cc-MsH" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="30" id="ykP-Ox-OtD"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -52,6 +55,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="weather_all" width="16" height="16"/>
+        <image name="weather_all" width="150" height="150"/>
     </resources>
 </document>

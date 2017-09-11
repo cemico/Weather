@@ -20,8 +20,10 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
             if let tableView = dailyTableView {
 
+                dailyContainerView.backgroundColor = UIColor.red
                 tableView.frame = dailyContainerView.bounds
                 tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                tableView.translatesAutoresizingMaskIntoConstraints = true
                 dailyContainerView.addSubview(tableView)
             }
         }
@@ -33,8 +35,10 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
             if let tableView = conditionsTableView {
 
+                conditionsContainerView.backgroundColor = UIColor.yellow
                 tableView.frame = conditionsContainerView.bounds
                 tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                tableView.translatesAutoresizingMaskIntoConstraints = true
                 conditionsContainerView.addSubview(tableView)
             }
         }

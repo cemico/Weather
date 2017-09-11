@@ -1,5 +1,5 @@
 //
-//  WeatherViewController.swift
+//  WeatherCollectionViewController.swift
 //  DR-Weather
 //
 //  Created by Dave Rogers on 9/5/17.
@@ -11,7 +11,7 @@ import SwiftyGif
 import EZSwiftExtensions
 import CoreLocation
 
-class WeatherViewController: UIViewController {
+class WeatherCollectionViewController: UIViewController {
 
     @IBOutlet weak var loadingView: LoadingView!
     @IBOutlet weak var containerView: UIView!
@@ -69,38 +69,14 @@ class WeatherViewController: UIViewController {
         // get rid of the bottom empty rows
         dailyTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 1))
         conditionsTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 1))
+    }
 
-//        let dict = ["temp_f" : 92.3]
-//        let co = CurrentObservation(attributes: dict)
-//        let temp = co.getDoubleByKey("temp_f")
-//        let desc = String(format: "%.1f", temp)
-//        print(desc)
+    override func viewDidLayoutSubviews() {
+        syncCollectionWidth()
 
+        super.viewDidLayoutSubviews()
 
-//        let name = "nt_clear"
-//        let image = UIImage(gifName: name)
-        
-//        // test of degree symbol, need to attribute text make it about 1/6 font size
-//        currentTempLabel.text = "80\u{00B0}"
-
-//        let text = "357"
-//        currentTempLabel.setDegree(text: text)
-
-        // location test
-//        let dictLocation: DaveAttributes = ["city" : "San Jose",
-//                                            "country" : "US",
-//                                            "lat" : "38.400000",
-//                                            "lon" : "-121.370000",
-//                                            "tz_long" : "America/Los_Angeles"
-//        ]
-//        let location = Location(attributes: dictLocation)
-//        print(location.city, location.country, location.latitude, location.longitude, location.timezone)
-
-//        let dictWeather: DaveAttributes = ["location" : dictLocation]
-//        let weather = Weather(attributes: dictWeather)
-//        print(weather.location, weather.location.city)
-
-//        WeatherDataController.sharedInstance.getWeather()
+        syncCollectionWidth()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -125,10 +101,10 @@ class WeatherViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-//        if UIDevice.current.orientation.isLandscape {
+        if isLandscape() {
 
             syncToCurrentDeviceOrientation()
-//        }
+        }
 
         if let text = cityLabel.text, !text.isEmpty {
 
@@ -154,7 +130,6 @@ class WeatherViewController: UIViewController {
         }) { _ in
 
             // rotation complete
-//            print("sync", self.headerView.frame)
             self.setMinMaxSwipeUpSpace()
 
             let offset = self.maxHeight - self.headerView.frame.size.height
@@ -178,7 +153,7 @@ class WeatherViewController: UIViewController {
     func syncToCurrentDeviceOrientation() {
 
         // not all properties are tied to sizing classes ... manually update text orientations
-        if UIDevice.current.orientation.isLandscape {
+        if isLandscape() {
 
             // landscape - mixed alignmet
             cityLabel.textAlignment = .left
@@ -192,22 +167,31 @@ class WeatherViewController: UIViewController {
         }
 
         // make sure the collection view layout tracks the right width
-        self.collectionFlowLayout.itemSize.width = self.containerView.frame.size.width
-        print("container width: \(self.collectionFlowLayout.itemSize.width)")
+        syncCollectionWidth()
 
         // have collection re-layout
         collectionFlowLayout.invalidateLayout()
     }
 
+    func syncCollectionWidth() {
+
+        if collectionFlowLayout.itemSize.width != containerView.frame.size.width {
+
+            print("container width, before: \(collectionFlowLayout.itemSize.width), after: \(containerView.frame.size.width)")
+            collectionView.frame.size.width = collectionFlowLayout.itemSize.width
+            collectionFlowLayout.itemSize.width = containerView.frame.size.width
+        }
+    }
+
     func setMinMaxSwipeUpSpace() {
 
-        if UIDevice.current.orientation.isLandscape {
+        if isLandscape() {
 
             // space more constrainted in landscape, allow min top to be just under lowest label
-            minHeight = conditionLabel.frame.maxY
+            minHeight = conditionLabel.frame.maxY + 5
 
             // max puts city centered on y space
-            maxHeight = cityLabel.frame.midY * 2
+            maxHeight = containerView.frame.size.height / 4
         }
         else {
 
@@ -351,10 +335,15 @@ class WeatherViewController: UIViewController {
         dailyTableView.reloadData(with: .fromBottom)
         conditionsTableView.reloadData()
     }
+
+    func isLandscape() -> Bool {
+
+        return UIDevice.current.orientation.isLandscape
+    }
 }
 
 // keep things bit cleaner
-extension WeatherViewController: UICollectionViewDataSource {
+extension WeatherCollectionViewController: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
 
@@ -432,6 +421,7 @@ extension WeatherViewController: UICollectionViewDataSource {
                 // attach
                 sectionView.collectionFlowLayout = hourlyCollectionFlowLayout
                 sectionView.collectionView = hourlyCollectionView
+
                 return sectionView
 
             default:
@@ -440,7 +430,7 @@ extension WeatherViewController: UICollectionViewDataSource {
     }
 }
 
-extension WeatherViewController: UIScrollViewDelegate {
+extension WeatherCollectionViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
@@ -457,7 +447,11 @@ extension WeatherViewController: UIScrollViewDelegate {
                 collectionView.frame.origin.y = minHeight
                 collectionView.frame.size.height = view.frame.size.height - minHeight
 //                print("header height: \(headerView.frame.size.height)")
-                currentTempLabel.alpha = 0
+
+                if !isLandscape() {
+
+                    currentTempLabel.alpha = 0
+                }
             }
             return
         }
@@ -486,6 +480,7 @@ extension WeatherViewController: UIScrollViewDelegate {
         collectionView.contentOffset.y = 0
 //        print("header height: \(headerView.frame.size.height)")
 
+        guard !isLandscape() else { return }
         if collectionView.frame.minY <= currentTempLabel.frame.maxY {
 
             // passed bottom of temp label
@@ -502,11 +497,11 @@ extension WeatherViewController: UIScrollViewDelegate {
     }
 }
 
-extension WeatherViewController: UICollectionViewDelegate {
+extension WeatherCollectionViewController: UICollectionViewDelegate {
 
 }
 
-extension WeatherViewController: UICollectionViewDelegateFlowLayout {
+extension WeatherCollectionViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -516,10 +511,17 @@ extension WeatherViewController: UICollectionViewDelegateFlowLayout {
 
             let width = self.collectionFlowLayout.itemSize.width
             var height = self.collectionFlowLayout.itemSize.height
-            if UIDevice.current.orientation.isLandscape {
+            if isLandscape() {
 
                 // 270 table + 40 label
                 height = 310
+            }
+
+            // check for runtime constraint violation
+            let calcMaxWidth = collectionView.frame.size.width - collectionFlowLayout.sectionInset.left - collectionFlowLayout.sectionInset.right
+            if width > calcMaxWidth {
+
+                print("width: \(width), calc'd width: \(calcMaxWidth)")
             }
 
             let newSize = CGSize(width: width, height: height)
@@ -545,7 +547,7 @@ extension WeatherViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension WeatherViewController: UITableViewDataSource {
+extension WeatherCollectionViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -584,10 +586,9 @@ extension WeatherViewController: UITableViewDataSource {
     }
 }
 
-extension WeatherViewController: UITableViewDelegate {
+extension WeatherCollectionViewController: UITableViewDelegate {
 
 }
 
 // misc class definitions for debugging identification
 class WeatherCollectionFlowLayout: UICollectionViewFlowLayout { }
-class HourlyCollectionFlowLayout: UICollectionViewFlowLayout { }

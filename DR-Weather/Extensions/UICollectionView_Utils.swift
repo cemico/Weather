@@ -32,7 +32,7 @@ extension UICollectionView {
     private func springCells(with springRoot: ReloadSpringRootDirection, currentCount: Int, maxCount: Int = 40, delaySeconds: Double = 0.1) {
 
         // check for timeout
-        guard currentCount < maxCount else { print(#function, "timed out"); return }
+        guard currentCount < maxCount else { print(#function, "timed out"); isHidden = false; return }
 
         // wait for visible cells with timeout
         if self.visibleCells.count <= 0 {
@@ -76,6 +76,9 @@ extension UICollectionView {
             cell.transform = transform
         }
 
+        // show before animating them back
+        isHidden = false
+        
         // put back in place
         for (index, cell) in cells.enumerated() {
 
