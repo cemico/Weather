@@ -450,9 +450,16 @@ extension WeatherTableViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
+        struct Constants {
+
+            static let numberOfDailyAndConditionsRows = CGFloat(9)
+            static let summaryPortrait = CGFloat(50)
+            static let summaryLandscape = CGFloat(40)
+        }
+
         if tableView == dailyTableView || tableView == conditionsTableView {
 
-            return 30
+            return tableView.rowHeight
         }
 
         // weather table
@@ -466,12 +473,12 @@ extension WeatherTableViewController: UITableViewDataSource {
 
                 case 1:
                     // summary
-                    return 40
+                    return Constants.summaryLandscape
 
                 case 0:     fallthrough
                 default:
                     // daily and conditions
-                    return 270
+                    return Constants.numberOfDailyAndConditionsRows * dailyTableView.rowHeight
             }
         }
         else {
@@ -483,18 +490,18 @@ extension WeatherTableViewController: UITableViewDataSource {
 
             switch indexPath.row {
 
-            case 2:
-                // conditions
-                return 270
+                case 2:
+                    // conditions
+                    return Constants.numberOfDailyAndConditionsRows * conditionsTableView.rowHeight
 
-            case 1:
-                // summary
-                return 50
+                case 1:
+                    // summary
+                    return Constants.summaryPortrait
 
-            case 0:     fallthrough
-            default:
-                // daily
-                return 270
+                case 0:     fallthrough
+                default:
+                    // daily
+                    return Constants.numberOfDailyAndConditionsRows * dailyTableView.rowHeight
             }
         }
     }
