@@ -10,6 +10,20 @@ import UIKit
 
 extension UIView {
 
+    var isPortrait: Bool {
+
+        // status bar updates immediately on rotate whereas UIDevice.current.orientation.isLandscape has slight lag
+        let orientation = UIApplication.shared.statusBarOrientation
+        return (orientation == .portrait) || (orientation == .portraitUpsideDown)
+    }
+
+    var isLandscape: Bool {
+
+        // status bar updates immediately on rotate whereas UIDevice.current.orientation.isLandscape has slight lag
+        let orientation = UIApplication.shared.statusBarOrientation
+        return (orientation == .landscapeLeft) || (orientation == .landscapeRight)
+    }
+
     func pulse(for duration: TimeInterval = 2.0, and dampening: CGFloat = 0.2) {
 
         self.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
@@ -27,5 +41,5 @@ extension UIView {
             completion:{_ in
 
         })
-    }    
+    }
 }

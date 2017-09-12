@@ -32,7 +32,7 @@ extension UICollectionView {
     private func springCells(with springRoot: ReloadSpringRootDirection, currentCount: Int, maxCount: Int = 40, delaySeconds: Double = 0.1) {
 
         // check for timeout
-        guard currentCount < maxCount else { print(#function, "timed out"); isHidden = false; return }
+        guard currentCount < maxCount else { print(#function, "timed out"); isHidden = false; reloadData(); return }
 
         // wait for visible cells with timeout
         if self.visibleCells.count <= 0 {

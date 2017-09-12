@@ -8,6 +8,8 @@
 
 import UIKit
 
+class HourlyNowCollectionViewCell: HourlyCollectionViewCell { }
+
 class HourlyCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var hourLabel: UILabel!
