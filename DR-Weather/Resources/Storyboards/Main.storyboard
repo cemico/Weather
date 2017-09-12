@@ -652,9 +652,6 @@
                 <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I9f-dI-lku" customClass="DailyTableView" customModule="DR_Weather" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="270"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="270" id="DUH-G1-Umh"/>
-                    </constraints>
                     <prototypes>
                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DailyTableViewCell" id="rC5-s4-x27" customClass="DailyTableViewCell" customModule="DR_Weather" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="28" width="414" height="30"/>
