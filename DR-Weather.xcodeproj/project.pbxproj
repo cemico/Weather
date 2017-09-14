@@ -82,8 +82,19 @@
 		AA2723AA1F67D4D0003F1AEE /* ConditionsTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2723A61F67D4D0003F1AEE /* ConditionsTableViewCells.swift */; };
 		AA2723AB1F67D4D0003F1AEE /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2723A71F67D4D0003F1AEE /* DailyTableViewCell.swift */; };
 		AA2723AC1F67D4D0003F1AEE /* WeatherTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2723A81F67D4D0003F1AEE /* WeatherTableViewCells.swift */; };
+		AAFD9B901F6A503600C01B9E /* BaseResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD9B8F1F6A503600C01B9E /* BaseResponseTests.swift */; };
 		F8B04DA0A6507596FCAC5AB1 /* Pods_DR_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954EB50C0E303FFED0D487BC /* Pods_DR_Weather.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAFD9B891F6A4E3900C01B9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA1C220D1F5F59A700BAFF29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA1C22141F5F59A700BAFF29;
+			remoteInfo = "DR-Weather";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		282DB90201CFE0BA8F89B8ED /* Pods-DR-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DR-Weather.release.xcconfig"; path = "Pods/Target Support Files/Pods-DR-Weather/Pods-DR-Weather.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +177,10 @@
 		AA2723A61F67D4D0003F1AEE /* ConditionsTableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionsTableViewCells.swift; sourceTree = "<group>"; };
 		AA2723A71F67D4D0003F1AEE /* DailyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 		AA2723A81F67D4D0003F1AEE /* WeatherTableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCells.swift; sourceTree = "<group>"; };
+		AAFD9B841F6A4E3900C01B9E /* DR-WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DR-WeatherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAFD9B861F6A4E3900C01B9E /* DR_WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DR_WeatherTests.swift; sourceTree = "<group>"; };
+		AAFD9B881F6A4E3900C01B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAFD9B8F1F6A503600C01B9E /* BaseResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +189,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8B04DA0A6507596FCAC5AB1 /* Pods_DR_Weather.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAFD9B811F6A4E3900C01B9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				AA1C22171F5F59A700BAFF29 /* DR-Weather */,
+				AAFD9B851F6A4E3900C01B9E /* DR-WeatherTests */,
 				AA1C22161F5F59A700BAFF29 /* Products */,
 				B1B5CB2B0BA4D1C7E11C481C /* Pods */,
 				80814D0D2C87CE703931C9AB /* Frameworks */,
@@ -202,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				AA1C22151F5F59A700BAFF29 /* DR-Weather.app */,
+				AAFD9B841F6A4E3900C01B9E /* DR-WeatherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -409,6 +433,24 @@
 			path = Tables;
 			sourceTree = "<group>";
 		};
+		AAFD9B851F6A4E3900C01B9E /* DR-WeatherTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD9B8E1F6A4FD800C01B9E /* Model Tests */,
+				AAFD9B861F6A4E3900C01B9E /* DR_WeatherTests.swift */,
+				AAFD9B881F6A4E3900C01B9E /* Info.plist */,
+			);
+			path = "DR-WeatherTests";
+			sourceTree = "<group>";
+		};
+		AAFD9B8E1F6A4FD800C01B9E /* Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD9B8F1F6A503600C01B9E /* BaseResponseTests.swift */,
+			);
+			path = "Model Tests";
+			sourceTree = "<group>";
+		};
 		B1B5CB2B0BA4D1C7E11C481C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +483,24 @@
 			productReference = AA1C22151F5F59A700BAFF29 /* DR-Weather.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AAFD9B831F6A4E3900C01B9E /* DR-WeatherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAFD9B8D1F6A4E3900C01B9E /* Build configuration list for PBXNativeTarget "DR-WeatherTests" */;
+			buildPhases = (
+				AAFD9B801F6A4E3900C01B9E /* Sources */,
+				AAFD9B811F6A4E3900C01B9E /* Frameworks */,
+				AAFD9B821F6A4E3900C01B9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAFD9B8A1F6A4E3900C01B9E /* PBXTargetDependency */,
+			);
+			name = "DR-WeatherTests";
+			productName = "DR-WeatherTests";
+			productReference = AAFD9B841F6A4E3900C01B9E /* DR-WeatherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -455,6 +515,12 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 2D27P7B34F;
 						ProvisioningStyle = Automatic;
+					};
+					AAFD9B831F6A4E3900C01B9E = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 2D27P7B34F;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AA1C22141F5F59A700BAFF29;
 					};
 				};
 			};
@@ -472,6 +538,7 @@
 			projectRoot = "";
 			targets = (
 				AA1C22141F5F59A700BAFF29 /* DR-Weather */,
+				AAFD9B831F6A4E3900C01B9E /* DR-WeatherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -522,6 +589,13 @@
 				AA1C235D1F62680E00BAFF29 /* LaunchScreen.storyboard in Resources */,
 				AA1C23421F6267AD00BAFF29 /* nt_chancesleet.gif in Resources */,
 				AA1C23521F6267AD00BAFF29 /* nt_tstorms.gif in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAFD9B821F6A4E3900C01B9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,7 +691,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AAFD9B801F6A4E3900C01B9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFD9B901F6A503600C01B9E /* BaseResponseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AAFD9B8A1F6A4E3900C01B9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA1C22141F5F59A700BAFF29 /* DR-Weather */;
+			targetProxy = AAFD9B891F6A4E3900C01B9E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		AA1C22251F5F59A700BAFF29 /* Debug */ = {
@@ -745,6 +835,34 @@
 			};
 			name = Release;
 		};
+		AAFD9B8B1F6A4E3900C01B9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2D27P7B34F;
+				INFOPLIST_FILE = "DR-WeatherTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cemico.DR-WeatherTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DR-Weather.app/DR-Weather";
+			};
+			name = Debug;
+		};
+		AAFD9B8C1F6A4E3900C01B9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2D27P7B34F;
+				INFOPLIST_FILE = "DR-WeatherTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cemico.DR-WeatherTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DR-Weather.app/DR-Weather";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -765,6 +883,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		AAFD9B8D1F6A4E3900C01B9E /* Build configuration list for PBXNativeTarget "DR-WeatherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAFD9B8B1F6A4E3900C01B9E /* Debug */,
+				AAFD9B8C1F6A4E3900C01B9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
